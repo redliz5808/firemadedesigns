@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "Black String";
+    src: url("/assets/fonts/BlackString.ttf");
+}
+
+:root {
+    --primary: #eb1c24;
+    --secondary: #767779;
+    --dark: #181819;
+    --contrast: #fbf7f4f;
+    --accent: #eed2cc;
+    --background: #1c0111;
+
+    --primary-font: var(--dark);
+    --secondary-font: var(--contrast);
+    --primary-family: "Montserrat", sans-serif;
+    --primary-heading: "Black String", cursive;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.heading {
+    font-family: var(--primary-heading);
+}
+
+#sampleLogo {
+    background-color: var(--background);
+    overflow: hidden;
+}
+
+#rotatingContainer {
+    transform: perspective(150px) rotate3d(-200, 15, 100, 338deg);
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    transition: all 0.3s ease-in;
+    background-image: url(/assets/images/FMDLogo-3d.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#rotatingContainer.animate {
+    animation-name: animateLogo;
+    animation-duration: 150s;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+}
+
+@keyframes animateLogo {
+    0% {
+        transform: perspective(150px) rotate3d(-200, 15, 100, 338deg);
+    }
+    33% {
+        transform: perspective(190px) rotate3d(-140, 0, 200, 345deg);
+    }
+    66% {
+        transform: perspective(238px) rotate3d(-62, 0, 136, 360deg);
+    }
+    100% {
+        transform: perspective(0) rotate3d(0, 0, 0, 360deg);
+    }
+}
